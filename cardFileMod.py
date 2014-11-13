@@ -16,6 +16,7 @@ def doSomething(cardFile):
     # What the user tells it is done here
     if whatYouWouldLikeToDo == '0':
         printAllInDict(cardsDict)
+        print(str(cardsDict.__len__())+" Cards in all")
         print("---------------------------")
         doSomething(cardFile)
     elif whatYouWouldLikeToDo == '1':
@@ -35,6 +36,8 @@ def doSomething(cardFile):
                 with open(cardFile, 'w') as cards:
                     json.dump(cardsDict, cards)
                 print('Just removed ' + cardToBeRemovedTitle + ' from the file.')
+                print("---------------------------")
+                doSomething(cardFile)
             else:
                 print("---------------------------")
                 doSomething(cardFile)
