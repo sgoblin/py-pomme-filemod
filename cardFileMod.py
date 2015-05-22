@@ -26,7 +26,7 @@ def doSomething(cardFile):
         newCardDesc = input('Type the description of the card you wish to add: ')
         with open(cardFile, 'w') as cards:
             cardsDict[newCardTitle] = newCardDesc
-            json.dump(cardsDict, cards)
+            json.dump(cardsDict, cards, indent=2)
         print("---------------------------")
         doSomething(cardFile)
     elif whatYouWouldLikeToDo == '2':
@@ -36,7 +36,7 @@ def doSomething(cardFile):
             if areYouSureRemove == cardToBeRemovedTitle:
                 cardToBeRemoved = cardsDict.pop(cardToBeRemovedTitle)
                 with open(cardFile, 'w') as cards:
-                    json.dump(cardsDict, cards)
+                    json.dump(cardsDict, cards, indent=2)
                 print('Just removed ' + cardToBeRemovedTitle + ' from the file.')
                 print("---------------------------")
                 doSomething(cardFile)
